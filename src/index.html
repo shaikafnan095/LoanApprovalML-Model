@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loan Approval System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <div class="container">
+
+    <header class="header">
+      <div class="header-tag">AI-Powered</div>
+      <h1>Loan <span class="accent">Approval</span><br/>Predictor</h1>
+      <p class="subtitle">Fill in your details and get an instant decision powered by machine learning.</p>
+    </header>
+
+    <form class="form-card" id="loanForm">
+
+      <div class="section-label">Personal Info</div>
+      <div class="form-grid">
+
+        <div class="field">
+          <label for="education">Education Level</label>
+          <div class="select-wrap">
+            <select id="education" name="education" required>
+              <option value="" disabled selected>Select education</option>
+              <option value="1">Graduate</option>
+              <option value="0">Not Graduate</option>
+            </select>
+            <span class="select-arrow">↓</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="no_of_dependents">No. of Dependents</label>
+          <input type="number" id="no_of_dependents" name="no_of_dependents" min="0" max="10" placeholder="e.g. 2" required />
+        </div>
+
+        <div class="field">
+          <label for="cibil_score">CIBIL Score</label>
+          <input type="number" id="cibil_score" name="cibil_score" min="300" max="900" placeholder="300 – 900" required />
+        </div>
+
+        <div class="field">
+          <label for="income_annum">Annual Income (₹)</label>
+          <input type="number" id="income_annum" name="income_annum" placeholder="e.g. 500000" required />
+        </div>
+
+      </div>
+
+      <div class="section-label">Loan Details</div>
+      <div class="form-grid">
+
+        <div class="field full">
+          <label for="loan_amount">Loan Amount (₹)</label>
+          <input type="number" id="loan_amount" name="loan_amount" placeholder="e.g. 1000000" required />
+        </div>
+
+      </div>
+
+      <div class="section-label">Asset Values (₹)</div>
+      <div class="form-grid">
+
+        <div class="field">
+          <label for="residential_assets_value">Residential Assets</label>
+          <input type="number" id="residential_assets_value" name="residential_assets_value" placeholder="e.g. 2000000" required />
+        </div>
+
+        <div class="field">
+          <label for="commercial_assets_value">Commercial Assets</label>
+          <input type="number" id="commercial_assets_value" name="commercial_assets_value" placeholder="e.g. 500000" required />
+        </div>
+
+        <div class="field">
+          <label for="luxury_assets_value">Luxury Assets</label>
+          <input type="number" id="luxury_assets_value" name="luxury_assets_value" placeholder="e.g. 300000" required />
+        </div>
+
+        <div class="field">
+          <label for="bank_asset_value">Bank Assets</label>
+          <input type="number" id="bank_asset_value" name="bank_asset_value" placeholder="e.g. 400000" required />
+        </div>
+
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="btn-text">Check Eligibility</span>
+        <span class="btn-icon">→</span>
+      </button>
+
+    </form>
+
+    <!-- Result Card -->
+    <div class="result-card" id="resultCard">
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-status" id="resultStatus"></div>
+      <div class="result-message" id="resultMessage"></div>
+      <button class="reset-btn" id="resetBtn">Check Another →</button>
+    </div>
+
+    <!-- Error Card -->
+    <div class="error-card" id="errorCard">
+      <div class="error-icon">⚠</div>
+      <div class="error-text" id="errorText">Something went wrong. Please try again.</div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

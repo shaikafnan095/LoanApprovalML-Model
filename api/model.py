@@ -1,11 +1,18 @@
-# main.py
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import pickle
 import pandas as pd
-from fastapi import FastAPI
 
 app = FastAPI()
 
-# Loads in milliseconds
+# ADD THIS CORS MIDDLEWARE
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 model = pickle.load(open('model.pkl', 'rb'))
 scaler = pickle.load(open('scaler.pkl', 'rb'))
 
